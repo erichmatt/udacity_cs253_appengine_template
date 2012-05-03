@@ -42,17 +42,16 @@ class MainPage(Handler):
 class Rot13(Handler):
     
     def get(self):
-        self.render("rot13.html")
+        self.render("rot13.html", rot13_text = 'display this')
 
 
 class Sign_up(Handler):
     
     def get(self):
-        self.render("sign_up.html")
+        self.render("sign_up.html", sign_up_text = 'display this on the sign up page')
     
         
 class Welcome(Handler):
     def get(self):
-        self.render("welcome.html")
+        self.render("welcome.html",name = "what's his name?")
 
-#app = webapp2.WSGIApplication( ('/rot13',Rot13),('/sign_up',Sign_up),('/welcome',Welcome)], debug=True)

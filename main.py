@@ -23,7 +23,8 @@ import jinja2
 from unit2.hw2 import Rot13
 from unit2.hw2 import Sign_up
 from unit2.hw2 import Welcome
-from unit3.blog import Blog
+from unit3.hw3 import Blog
+
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir), autoescape = True)            
 class Handler(webapp2.RequestHandler):
@@ -42,5 +43,5 @@ class MainPage(Handler):
  
 
 app = webapp2.WSGIApplication([('/', MainPage),
-                              ('/rot13',Rot13),('/sign_up',Sign_up),('/welcome',Welcome),('/blog',Blog],
+                              ('/rot13',Rot13),('/sign_up',Sign_up),('/welcome',Welcome),('/blog',Blog)],
                              debug=True)

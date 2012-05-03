@@ -34,21 +34,9 @@ class Handler(webapp2.RequestHandler):
     def render(self, template, **kw):
         self.write(self.render_str(template, **kw))
         
- 
-        
-class Rot13(Handler):
     
+class Blog(Handler):
     def get(self):
-        self.render("rot13.html", rot13_text = 'display this')
+        self.render("blog.html", blog_post = 'this is my blog post')
 
-
-class Sign_up(Handler):
-    
-    def get(self):
-        self.render("sign_up.html", sign_up_text = 'display this on the sign up page')
-    
-        
-class Welcome(Handler):
-    def get(self):
-        self.render("welcome.html",name = "what's his name?")
 
