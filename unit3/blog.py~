@@ -20,12 +20,10 @@ import cgi
 import re
 import jinja2
 
-from unit2.hw2 import Rot13
-from unit2.hw2 import Sign_up
-from unit2.hw2 import Welcome
-from unit3.blog import Blog
+
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
-jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir), autoescape = True)            
+jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir), autoescape = True)
+
 class Handler(webapp2.RequestHandler):
     def write(self, *a, **kw):
         self.response.out.write(*a, **kw)
@@ -40,7 +38,20 @@ class MainPage(Handler):
     def get(self):
         self.render("main.html",test='text')
  
+        
+class Rot13(Handler):
+    
+    def get(self):
+        self.render("rot13.html", rot13_text = 'display this')
 
-app = webapp2.WSGIApplication([('/', MainPage),
-                              ('/rot13',Rot13),('/sign_up',Sign_up),('/welcome',Welcome),('/blog',Blog],
-                             debug=True)
+
+class Sign_up(Handler):
+    
+    def get(self):
+        self.render("sign_up.html", sign_up_text = 'display this on the sign up page')
+    
+        
+class Welcome(Handler):
+    def get(self):
+        self.render("welcome.html",name = "what's his name?")
+

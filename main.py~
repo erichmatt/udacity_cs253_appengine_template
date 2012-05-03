@@ -37,7 +37,7 @@ class Handler(webapp2.RequestHandler):
         
 class MainPage(Handler):
     def get(self):
-        self.render("main.html",test='boobies')
+        self.render("main.html",test='text')
  
 
 app = webapp2.WSGIApplication([('/', MainPage),
